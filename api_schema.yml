@@ -1,0 +1,422 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /user/:
+    get:
+      operationId: listUsers
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - user
+    post:
+      operationId: createUser
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - user
+  /user/{email}/:
+    get:
+      operationId: retrieveUser
+      description: ''
+      parameters:
+      - name: email
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - user
+    put:
+      operationId: updateUser
+      description: ''
+      parameters:
+      - name: email
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - user
+    patch:
+      operationId: partialUpdateUser
+      description: ''
+      parameters:
+      - name: email
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - user
+    delete:
+      operationId: destroyUser
+      description: ''
+      parameters:
+      - name: email
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - user
+  /user/accounts/:
+    get:
+      operationId: listAccountDetails
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountDetails'
+          description: ''
+      tags:
+      - user
+    post:
+      operationId: createAccountDetails
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountDetails'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AccountDetails'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AccountDetails'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDetails'
+          description: ''
+      tags:
+      - user
+  /user/accounts/{id}/:
+    get:
+      operationId: retrieveAccountDetails
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this account details.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDetails'
+          description: ''
+      tags:
+      - user
+    put:
+      operationId: updateAccountDetails
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this account details.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountDetails'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AccountDetails'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AccountDetails'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDetails'
+          description: ''
+      tags:
+      - user
+    patch:
+      operationId: partialUpdateAccountDetails
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this account details.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountDetails'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AccountDetails'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AccountDetails'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDetails'
+          description: ''
+      tags:
+      - user
+    delete:
+      operationId: destroyAccountDetails
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this account details.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - user
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        password:
+          type: string
+          maxLength: 128
+        last_login:
+          type: string
+          format: date-time
+          nullable: true
+        is_superuser:
+          type: boolean
+          description: Designates that this user has all permissions without explicitly
+            assigning them.
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+\z
+          maxLength: 150
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        is_staff:
+          type: boolean
+          description: Designates whether the user can log into this admin site.
+        is_active:
+          type: boolean
+          description: Designates whether this user should be treated as active. Unselect
+            this instead of deleting accounts.
+        date_joined:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+          maxLength: 200
+        groups:
+          type: array
+          items:
+            type: integer
+          description: The groups this user belongs to. A user will get all permissions
+            granted to each of their groups.
+        user_permissions:
+          type: array
+          items:
+            type: integer
+          description: Specific permissions for this user.
+      required:
+      - password
+      - username
+      - email
+    AccountDetails:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            password:
+              type: string
+              maxLength: 128
+            last_login:
+              type: string
+              format: date-time
+              nullable: true
+            is_superuser:
+              type: boolean
+              description: Designates that this user has all permissions without explicitly
+                assigning them.
+            username:
+              type: string
+              description: Required. 150 characters or fewer. Letters, digits and
+                @/./+/-/_ only.
+              pattern: ^[\w.@+-]+\z
+              maxLength: 150
+            first_name:
+              type: string
+              maxLength: 150
+            last_name:
+              type: string
+              maxLength: 150
+            is_staff:
+              type: boolean
+              description: Designates whether the user can log into this admin site.
+            is_active:
+              type: boolean
+              description: Designates whether this user should be treated as active.
+                Unselect this instead of deleting accounts.
+            date_joined:
+              type: string
+              format: date-time
+            email:
+              type: string
+              format: email
+              maxLength: 200
+            groups:
+              type: array
+              items:
+                type: integer
+              description: The groups this user belongs to. A user will get all permissions
+                granted to each of their groups.
+            user_permissions:
+              type: array
+              items:
+                type: integer
+              description: Specific permissions for this user.
+          required:
+          - password
+          - username
+          - email
+          readOnly: true
+        bank_details:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            name:
+              type: string
+              maxLength: 200
+            bank_code:
+              type: string
+              maxLength: 20
+          required:
+          - name
+          - bank_code
+          readOnly: true
+        bvn:
+          type: integer
+        account_balance:
+          type: number
+      required:
+      - bvn
