@@ -5,9 +5,10 @@ from django.urls import path, include
 from django.contrib.auth import get_user_model
 
 from rest_framework import routers as r
+from rest_framework import status
 
 from rest_framework_simplejwt import settings as jwt_settings
-
+from django.http.response import HttpResponse
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -28,7 +29,13 @@ router.register("user", UserViewSet)
 router.register("accounts", AccountDetailsViewset)
 
 
+# @api_view(["GET"])
+def index(request):
+    return HttpResponse("<b>Welcome to the backend</b>", status=status.HTTP_200_OK)
+
+
 urlpatterns = [
+    path("", index),
     path('admin/', admin.site.urls),
     path('user', include("registration.urls")),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
