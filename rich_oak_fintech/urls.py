@@ -8,6 +8,7 @@ from rest_framework import routers as r
 
 from rest_framework_simplejwt import settings as jwt_settings
 
+
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
