@@ -14,7 +14,7 @@ class AccountDetailsViewset(viewsets.ModelViewSet):
 
     serializer_class = AccountDetailsSerializer
     queryset = AccountDetails.objects.all()
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     # lookup_field = "user"
     lookup_url_kwarg = "user_id"
 
@@ -47,7 +47,7 @@ class AccountDetailsViewset(viewsets.ModelViewSet):
 
 class TransactionViewset(viewsets.ModelViewSet):
     serializer_class = TransactionHistorySerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     queryset = TransactionHistory.objects.all()
 
     def retrieve(self, request, *args, **kwargs):
