@@ -19,7 +19,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = user_model.objects.all()
     # lookup_field = "id"
-    permission_classes_by_action = {'create': [AllowAny], "retrieve": [IsAdminUser],
+    permission_classes_by_action = {'create': [AllowAny], "retrieve": [IsAuthenticated],
                                     'list': [IsAdminUser], "update": [IsAuthenticated, IsAdminUser]
                                     }
 

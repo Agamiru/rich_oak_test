@@ -3,6 +3,8 @@ from datetime import timedelta
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import get_user_model
+from django.conf import settings
+from django.http.request import HttpRequest
 
 from rest_framework import routers as r
 from rest_framework import status
@@ -30,7 +32,9 @@ router.register("accounts", AccountDetailsViewset)
 
 
 # @api_view(["GET"])
-def index(request):
+def index(request: HttpRequest):
+    if settings.DEBUG:
+        print(f"request headers: {request.headers}")
     return HttpResponse("<b>Welcome to the backend</b>", status=status.HTTP_200_OK)
 
 

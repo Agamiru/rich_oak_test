@@ -129,13 +129,15 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     config("FRONT_END_HOST"),
-    "http://localhost:61293",
+    "http://localhost:59144",
 ]
+#
+#
+# CORS_ALLOWED_ORIGIN_REGEXES = [
+#     r"^https://localhost:[0-9]+$",
+# ]
 
-
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.ngrok\.io$",
-]
+# CORS_ALLOW_ALL_ORIGIN = True
 
 
 # Internationalization
