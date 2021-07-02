@@ -68,7 +68,7 @@ class TransactionHistory(models.Model):
     )
     amount = models.FloatField()
     transaction_type = models.CharField(max_length=2, choices=_credit_or_debit)
-    date = models.DateTimeField(default=timezone.now())
+    date = models.DateTimeField(default=timezone.now)
 
 
 # class TransactionHistoryJoin(models.Model):
