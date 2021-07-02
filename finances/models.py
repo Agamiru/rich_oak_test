@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
-from django.utils.timezone import datetime
+from django.utils import timezone
 
 user_model = get_user_model()
 
@@ -68,7 +68,7 @@ class TransactionHistory(models.Model):
     )
     amount = models.FloatField()
     transaction_type = models.CharField(max_length=2, choices=_credit_or_debit)
-    date = models.DateTimeField(default=datetime.now())
+    date = models.DateTimeField(default=timezone.now())
 
 
 # class TransactionHistoryJoin(models.Model):
